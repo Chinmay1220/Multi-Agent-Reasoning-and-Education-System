@@ -1,0 +1,3 @@
+Garbage In, Garbage Out (GIGO) reminds us that poor inputs lead to poor model outputs. 
+In multi-agent systems, bad retrieval or missing context often produces hallucinations. 
+A critic agent acts as a computational skeptic, checking whether the answer is supported by the retrieved evidence.

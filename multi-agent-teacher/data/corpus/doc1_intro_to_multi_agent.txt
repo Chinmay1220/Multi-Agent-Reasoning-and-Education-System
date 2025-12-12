@@ -1,0 +1,3 @@
+Multi-agent LLM systems use multiple specialized language model agents that collaborate to solve a task. 
+Each agent has a role, such as planner, researcher, writer, or critic. 
+This decomposition can improve reliability, interpretability, and modularity compared to a single monolithic prompt.

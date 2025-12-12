@@ -1,0 +1,10 @@
+[
+  {
+    "question": "Why might multi-agent LLM systems be more reliable than a single-agent system?",
+    "difficulty": "easy"
+  },
+  {
+    "question": "What is the role of a critic agent in reducing hallucinations?",
+    "difficulty": "medium"
+  }
+]
