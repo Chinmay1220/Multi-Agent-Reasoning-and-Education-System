@@ -1,50 +1,106 @@
-# Teaching Multi-Agent LLM Systems: Planner–Retriever–Analyst–Critic
+# 📘 Teaching Multi-Agent LLM Systems: Planner–Retriever–Analyst–Critic
 
-This project is my take-home final for **INFO 7390: Advanced Data Science and Architecture**.
+This project is my **take-home final for INFO 7390: Advanced Data Science and Architecture**.  
+It is a fully functioning **multi-agent LLM teaching system** designed to show *how multiple AI agents collaborate to answer questions more reliably, transparently, and interpretably than a single LLM*.
 
-I use a **multi-agent LLM system** to *teach* how agents collaborate:
-- **Planner**: clarifies and decomposes the question
-- **RetrieverAgent**: gathers evidence from a small corpus
-- **Analyst**: synthesizes a grounded answer
-- **Critic**: acts as a computational skeptic and checks for hallucinations
-
-The project includes:
-- A working implementation (`src/`)
-- Interactive notebooks (`notebooks/`)
-- A tutorial document (`tutorial/`)
-- Exercises and debugging scenarios (`assessment/`)
-- A 10-minute Show-and-Tell video (link below)
+The goal of this project is both **technical** (building a modular multi-agent architecture) and **pedagogical** (teaching AI reasoning, Botspeak roles, GIGO, computational skepticism, and retrieval-augmented workflows).
 
 ---
 
-## 🔍 Concept Overview
+# 🚀 Project Overview
 
-Multi-agent LLM systems decompose a complex task into specialized roles.
-Instead of one giant prompt, multiple focused agents:
-- improve reliability,
-- make the reasoning process more interpretable,
-- and connect naturally to course themes like **Botspeak**, **GIGO**, and **Computational Skepticism**.
+This project demonstrates a four-agent architecture:
 
-This project demonstrates a **Planner → RetrieverAgent → Analyst → Critic** architecture
-for answering questions about a small corpus of teaching documents.
+- **Planner** — Clarifies the user’s question and breaks it into subtasks  
+- **RetrieverAgent** — Performs embedding-based retrieval over a small teaching corpus  
+- **Analyst** — Synthesizes a grounded answer using retrieved evidence  
+- **Critic** — Evaluates the draft answer, identifies hallucinations, and provides a corrected final answer  
 
----
+Instead of generating a single opaque LLM response, the system makes every step **visible, inspectable, and teachable**.  
+This is achieved through:
 
-## 🎯 Learning Objectives
+- A **Streamlit UI** that exposes intermediate agent steps  
+- **Teaching notebooks** that walk from single-agent → two-agent → full four-agent systems  
+- **A tutorial document** explaining concepts and workflows  
+- **Debugging scenarios** to teach failure cases  
+- **A Show-and-Tell video** following the Explain → Show → Try method  
 
-After working through this material, a learner will be able to:
-
-1. Explain what a multi-agent LLM system is and why you might use one.
-2. Implement a simple multi-agent pipeline in Python.
-3. Design basic agent prompts for planning, retrieval, analysis, and critique.
-4. Diagnose common failure modes like hallucinations and bad retrieval.
-5. Extend the system with new agent roles (e.g., Style Editor, Explainer).
+This structure creates an **X-ray view of LLM reasoning**, making it ideal for learning, demonstration, and interviews.
 
 ---
 
-## 🛠️ Installation
+# 🔍 Concept Overview
 
-```bash
-git clone https://github.com/your-username/multi-agent-teacher.git
-cd multi-agent-teacher
-pip install -r requirements.txt
+Multi-agent LLM systems decompose a complex task into smaller, focused roles.  
+Rather than depending on one large prompt, this approach uses **agent specialization**:
+
+- Improves reliability  
+- Makes reasoning interpretable  
+- Supports grounded evidence-based answers  
+- Reduces hallucinations  
+- Aligns with INFO 7390 themes like:
+  - **Botspeak Framework**
+  - **GIGO: Garbage In, Garbage Out**
+  - **Computational Skepticism**
+  - **Structured prompting**
+  - **Retrieval-Augmented Reasoning**
+
+This project implements a clean, modular **Planner → RetrieverAgent → Analyst → Critic** pipeline over a small corpus of instructional text files.
+
+---
+
+# 🎯 Learning Objectives
+
+By exploring this project, a student will be able to:
+
+### Core Understanding
+✔ Explain what a multi-agent LLM system is  
+✔ Understand why task decomposition improves reliability  
+✔ Interpret evidence-backed answer generation  
+✔ Recognize how hallucinations arise and how agents reduce them  
+
+### Implementation Skills
+✔ Implement a multi-agent pipeline in Python  
+✔ Write agent prompts inspired by Botspeak  
+✔ Use embeddings for simple retrieval  
+✔ Build and evaluate agent reasoning chains  
+
+### Debugging / Extension
+✔ Diagnose failure cases  
+✔ Explore GIGO effects through retrieval quality  
+✔ Modify agent prompts  
+✔ Extend the system with new roles (e.g., Style Editor, Explainer, Verifier)  
+
+---
+
+# 🧠 How the System Works — Step-by-Step
+
+Below is the full reasoning pipeline executed for each user question:
+
+---
+
+## 1️⃣ User Question  
+The user types a question into the Streamlit app (or CLI).  
+Example:  
+> “Why might multi-agent LLM systems be more reliable than a single agent?”
+
+---
+
+## 2️⃣ Planner Agent — *Clarify & Decompose*  
+The Planner agent:  
+- Clarifies the question  
+- Rewrites it if necessary  
+- Breaks it into smaller, concrete subtasks  
+
+Example output:
+
+```json
+{
+  "clarified_question": "Explain why using multiple specialized LLM agents can be more reliable than a single agent.",
+  "subtasks": [
+    "Define what a multi-agent LLM system is.",
+    "Identify typical agent roles.",
+    "Compare multi-agent workflows to single-agent workflows.",
+    "Explain how they reduce hallucinations."
+  ]
+}
